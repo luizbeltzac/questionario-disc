@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perfil Comportamental DISC</title>
+<style>
+:root{--navy:#2D366F;--navy2:#232B5C;--ink:#1D2340;--muted:#5F6782;--line:#D9DDE8;--mist:#EEF0F6;--bg:#F6F7FB;--ok:#2E7D4F;--err:#B3261E;--accent:#4F63C9}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--navy);color:#fff;padding:18px 24px}
+header .t{font-size:18px;font-weight:600}
+header .s{font-size:13px;opacity:.75;margin-top:2px}
+.prog{height:6px;background:#3D468A}
+.prog>div{height:6px;background:#fff;width:0;transition:width .25s}
+main{max-width:760px;margin:28px auto;padding:0 16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px}
+h1{font-size:24px;margin:0 0 6px;color:var(--navy)}
+h2{font-size:18px;margin:0 0 4px;color:var(--navy)}
+p{line-height:1.55;margin:8px 0}
+.muted{color:var(--muted);font-size:14px}
+label.f{display:block;font-weight:600;font-size:14px;margin:18px 0 6px}
+input[type=text],input[type=email]{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:16px}
+input:focus{outline:2px solid var(--accent);border-color:transparent}
+.err{color:var(--err);font-size:13px;margin-top:6px;min-height:18px}
+.actions{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:12px}
+button{font:inherit;cursor:pointer;border-radius:10px;padding:11px 20px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+button.pri{background:var(--navy);color:#fff;border-color:var(--navy);font-weight:600}
+button.pri:disabled{background:#AEB3CC;border-color:#AEB3CC;cursor:not-allowed}
+button.link{border:none;background:none;color:var(--muted);padding:11px 4px}
+ul.tips{padding-left:18px;line-height:1.7}
+.check{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:14px}
+.counter{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+table.blk{width:100%;border-collapse:separate;border-spacing:0 8px;margin-top:14px}
+table.blk th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+table.blk td{background:var(--mist);padding:12px 14px;font-size:15px}
+table.blk td:first-child{border-radius:10px 0 0 10px}
+table.blk td:last-child{border-radius:0 10px 10px 0}
+table.blk td.c{width:76px;text-align:center}
+.opt{width:40px;height:40px;border-radius:50%;border:2px solid #B9BED3;background:#fff;padding:0;font-weight:700;font-size:22px;line-height:1;color:#9AA0B8}
+.opt.mais.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.menos.on{background:var(--err);border-color:var(--err);color:#fff}
+.lik{margin-top:14px}
+.lik .row{padding:14px 0;border-bottom:1px solid var(--line)}
+.lik .row:last-child{border-bottom:none}
+.lik .q{font-size:15px;margin-bottom:10px}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scale button{padding:9px 4px;font-size:12.5px;line-height:1.2}
+.scale button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.spin{width:38px;height:38px;border:4px solid var(--mist);border-top-color:var(--navy);border-radius:50%;animation:s 1s linear infinite;margin:20px auto}
+@keyframes s{to{transform:rotate(360deg)}}
+.res-box{background:var(--mist);border-left:5px solid var(--navy);border-radius:10px;padding:16px 18px;margin:16px 0}
+.res-box .k{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.05em}
+.res-box .r{font-size:22px;font-weight:700;color:var(--navy);margin:4px 0}
+.bar{display:grid;grid-template-columns:150px 1fr 40px;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.bar .tr{height:14px;background:var(--mist);border-radius:7px;overflow:hidden}
+.bar .tr>div{height:14px;border-radius:7px}
+.msg{padding:12px 14px;border-radius:10px;margin-top:14px;font-size:14px}
+.msg.ok{background:#E3F3E9;color:#1E5C38}
+.msg.warn{background:#FDF0E1;color:#7A4A10}
+.hide{display:none}
+.cq{padding:14px 0;border-bottom:1px solid var(--line)}
+.cq:last-of-type{border-bottom:none}
+.cq .q{font-size:15px;font-weight:600;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:9px 14px;font-size:14px;border-radius:999px}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+@media (max-width:560px){.card{padding:20px}table.blk td{font-size:14px;padding:10px}.bar{grid-template-columns:110px 1fr 34px}.scale button{font-size:11px}}
+</style>
+</head>
+<body>
+<header><div class="t">Perfil Comportamental DISC</div><div class="s">Questionário de desenvolvimento · cerca de 18 minutos</div></header>
+<div class="prog"><div id="prog"></div></div>
+<main><div class="card" id="app"><div class="spin"></div></div></main>
+
+<script>
+const app = document.getElementById('app');
+const prog = document.getElementById('prog');
+let Q = null, step = 'id', bi = 0, bpage = 0, cpage = 0;
+const st = { nome:'', email:'', ciente:false, a:[], b:{}, c:{} };
+const B_PAGE = 4;
+
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function setProg(){
+  const total = 1 + Q.parte_a.length + Math.ceil(Q.parte_b.length/B_PAGE) + 2;
+  let done = 0;
+  if(step==='intro') done = 1;
+  if(step==='a') done = 1 + bi;
+  if(step==='b') done = 1 + Q.parte_a.length + bpage;
+  if(step==='c') done = 1 + Q.parte_a.length + Math.ceil(Q.parte_b.length/B_PAGE) + cpage;
+  if(step==='env'||step==='res') done = total;
+  prog.style.width = (done/total*100)+'%';
+}
+
+const TOKEN = new URLSearchParams(location.search).get('t') || '';
+async function init(){
+  if(!TOKEN){ app.innerHTML = '<h2>Link incompleto</h2><p class="muted">Abra o questionário pelo link que seu líder enviou.</p>'; return; }
+  const r = await fetch('/api/questionario?t='+encodeURIComponent(TOKEN)); Q = await r.json();
+  if(!r.ok || Q.ok===false){ app.innerHTML = `<h2>Não foi possível abrir o questionário</h2><p class="muted">${esc(Q.erro||'Tente de novo mais tarde.')}</p>`; return; }
+  st.nome = Q.nome; st.email = Q.email;
+  st.a = Q.parte_a.map(()=>({mais:null,menos:null}));
+  render();
+}
+
+function render(){
+  setProg();
+  if(step==='id') return rId();
+  if(step==='intro') return rIntro();
+  if(step==='a') return rA();
+  if(step==='b') return rB();
+  if(step==='c') return rC();
+}
+
+function rId(){
+  app.innerHTML = `
+    <h1>Olá!</h1>
+    <p>Este questionário ajuda a entender o seu estilo de trabalho: como você se comunica, decide e prefere ser conduzido(a). O resultado chega no seu e-mail em PDF.</p>
+    <label class="f" for="nome">Nome completo</label>
+    <input type="text" id="nome" value="${esc(st.nome)}" readonly>
+    <label class="f" for="email">E-mail corporativo</label>
+    <input type="email" id="email" value="${esc(st.email)}" readonly>
+    <p class="muted" style="margin-top:6px">Se o nome ou o e-mail estiverem errados, peça um novo link ao seu líder.</p>
+    <label class="check"><input type="checkbox" id="ciente" ${st.ciente?'checked':''}>
+      <span>Entendo que o resultado é um guia de conversa para o meu desenvolvimento, não uma avaliação, e que uma cópia será enviada ao meu líder.</span></label>
+    <div class="err" id="err"></div>
+    <div class="actions"><span></span><button class="pri" id="go">Começar</button></div>`;
+  document.getElementById('go').onclick = () => {
+    st.ciente = document.getElementById('ciente').checked;
+    const err = document.getElementById('err');
+    if(!st.ciente) return err.textContent = 'Marque a caixa de ciência para continuar.';
+    step = 'intro'; render();
+  };
+}
+
+function rIntro(){
+  app.innerHTML = `
+    <h2>Como responder</h2>
+    <p><b>Parte 1 · 24 blocos.</b> Cada bloco tem 4 frases. Marque <b style="color:var(--ok)">+</b> na frase que <b>MAIS</b> se parece com você no trabalho e <b style="color:var(--err)">−</b> na que <b>MENOS</b> se parece.</p>
+    <p><b>Parte 2 · 16 frases.</b> Diga o quanto você concorda com cada uma.</p>
+    <p><b>Parte 3 · 7 perguntas.</b> Como você prefere se comunicar, receber feedback e o que te motiva.</p>
+    <ul class="tips">
+      <li>Não existe resposta certa ou errada: todas as frases descrevem qualidades.</li>
+      <li>Pense em como você <b>realmente</b> age no dia a dia, não em como gostaria de agir.</li>
+      <li>Responda pela primeira impressão; não pense demais em cada bloco.</li>
+    </ul>
+    <div class="actions"><button class="link" id="back">Voltar</button><button class="pri" id="go">Iniciar parte 1</button></div>`;
+  document.getElementById('back').onclick = () => {step='id';render();};
+  document.getElementById('go').onclick = () => {step='a';bi=0;render();};
+}
+
+function rA(){
+  const blk = Q.parte_a[bi], r = st.a[bi];
+  app.innerHTML = `
+    <div class="counter">Parte 1 · bloco ${bi+1} de ${Q.parte_a.length}</div>
+    <h2>No trabalho, qual frase MAIS e qual MENOS se parece com você?</h2>
+    <table class="blk"><thead><tr><th style="text-align:left">Frase</th><th>Mais</th><th>Menos</th></tr></thead><tbody>
+    ${blk.itens.map(it=>`<tr><td>${esc(it.texto)}</td>
+      <td class="c"><button class="opt mais ${r.mais===it.id?'on':''}" data-k="mais" data-id="${it.id}" aria-label="Mais">+</button></td>
+      <td class="c"><button class="opt menos ${r.menos===it.id?'on':''}" data-k="menos" data-id="${it.id}" aria-label="Menos">−</button></td></tr>`).join('')}
+    </tbody></table>
+    <div class="err" id="err"></div>
+    <div class="actions"><button class="link" id="back">Voltar</button><button class="pri" id="go" ${r.mais&&r.menos?'':'disabled'}>Próximo</button></div>`;
+  app.querySelectorAll('.opt').forEach(b => b.onclick = () => {
+    const k = b.dataset.k, id = b.dataset.id, o = k==='mais'?'menos':'mais';
+    r[k] = id; if(r[o]===id) r[o] = null; rA();
+  });
+  document.getElementById('back').onclick = () => { if(bi===0){step='intro';} else bi--; render(); };
+  document.getElementById('go').onclick = () => {
+    if(bi < Q.parte_a.length-1){bi++; render();} else {step='b'; bpage=0; render();}
+  };
+}
+
+function rB(){
+  const ini = bpage*B_PAGE, frases = Q.parte_b.slice(ini, ini+B_PAGE);
+  const npag = Math.ceil(Q.parte_b.length/B_PAGE), ult = bpage===npag-1;
+  const ok = frases.every(f=>st.b[f.id]);
+  app.innerHTML = `
+    <div class="counter">Parte 2 · frases ${ini+1} a ${ini+frases.length} de ${Q.parte_b.length}</div>
+    <h2>O quanto você concorda com cada frase?</h2>
+    <div class="lik">${frases.map(f=>`<div class="row"><div class="q">${esc(f.texto)}</div><div class="scale">
+      ${[1,2,3,4,5].map(v=>`<button class="${st.b[f.id]===v?'on':''}" data-id="${f.id}" data-v="${v}">${v}<br>${esc(Q.escala_b[v])}</button>`).join('')}
+      </div></div>`).join('')}</div>
+    <div class="err" id="err"></div>
+    <div class="actions"><button class="link" id="back">Voltar</button>
+      <button class="pri" id="go" ${ok?'':'disabled'}>${ult?'Ir para a parte 3':'Próximo'}</button></div>`;
+  app.querySelectorAll('.scale button').forEach(b => b.onclick = () => { st.b[b.dataset.id] = +b.dataset.v; rB(); });
+  document.getElementById('back').onclick = () => { if(bpage===0){step='a';bi=Q.parte_a.length-1;} else bpage--; render(); };
+  document.getElementById('go').onclick = () => { if(!ult){bpage++; render();} else {step='c'; cpage=0; render();} };
+}
+
+function rC(){
+  const unica = cpage===0;
+  const qs = unica ? Q.parte_c_unica : Q.parte_c_multi;
+  const ok = qs.every(q => unica ? st.c[q.id]!==undefined : (st.c[q.id]||[]).length>0);
+  app.innerHTML = `
+    <div class="counter">Parte 3 · ${unica?'perguntas 1 a 5':'perguntas 6 e 7'} de 7</div>
+    <h2>${unica?'Escolha a opção que mais combina com você':'Escolha até 3 opções em cada pergunta'}</h2>
+    ${qs.map(q=>`<div class="cq"><div class="q">${esc(q.pergunta)}</div><div class="chips">
+      ${q.opcoes.map(o=>{const on = unica ? st.c[q.id]===o.id : (st.c[q.id]||[]).includes(o.id);
+        return `<button class="chip ${on?'on':''}" data-q="${q.id}" data-o="${o.id}">${esc(o.texto)}</button>`}).join('')}
+      </div></div>`).join('')}
+    <div class="err" id="err"></div>
+    <div class="actions"><button class="link" id="back">Voltar</button>
+      <button class="pri" id="go" ${ok?'':'disabled'}>${unica?'Próximo':'Concluir e receber meu resultado'}</button></div>`;
+  app.querySelectorAll('.chip').forEach(b => b.onclick = () => {
+    const q = b.dataset.q, o = +b.dataset.o;
+    if(unica){ st.c[q] = o; return rC(); }
+    const sel = st.c[q] || (st.c[q] = []);
+    const i = sel.indexOf(o);
+    if(i>=0) sel.splice(i,1);
+    else if(sel.length < 3) sel.push(o);
+    else { rC(); document.getElementById('err').textContent = 'Você já escolheu 3 opções. Desmarque uma para trocar.'; return; }
+    rC();
+  });
+  document.getElementById('back').onclick = () => { if(cpage===0){step='b';bpage=Math.ceil(Q.parte_b.length/B_PAGE)-1;} else cpage--; render(); };
+  document.getElementById('go').onclick = () => { if(unica){cpage=1; render();} else enviar(); };
+}
+
+async function enviar(){
+  step='env'; setProg();
+  app.innerHTML = `<h2>Gerando seu resultado…</h2><p class="muted">Calculando o perfil, gerando o PDF e enviando para ${esc(st.email)}. Isso pode levar alguns segundos.</p><div class="spin"></div>`;
+  try{
+    const r = await fetch('/api/enviar',{method:'POST',headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({t:TOKEN,seed:Q.seed,parte_a:st.a,parte_b:st.b,parte_c:st.c})});
+    const d = await r.json();
+    if(!d.ok) throw new Error(d.erro || 'Não foi possível gerar o resultado.');
+    rRes(d);
+  }catch(e){
+    app.innerHTML = `<h2>Algo deu errado</h2><div class="msg warn">${esc(e.message)}</div>
+      <div class="actions"><span></span><button class="pri" id="again">Tentar de novo</button></div>`;
+    document.getElementById('again').onclick = enviar;
+  }
+}
+
+function rRes(d){
+  step='res'; setProg();
+  const ordem = ['D','I','S','C'];
+  app.innerHTML = `
+    <h1>Pronto, ${esc(d.nome.split(' ')[0])}!</h1>
+    <div class="res-box" style="border-left-color:${d.cores[d.principal]}">
+      <div class="k">SEU PERFIL</div><div class="r">${esc(d.rotulo)}</div><div>${esc(d.resumo)}</div></div>
+    ${ordem.map(f=>`<div class="bar"><b style="color:${d.cores[f]}">${f} · ${esc(d.nomes[f])}</b>
+      <div class="tr"><div style="width:${d.final[f]}%;background:${d.cores[f]}"></div></div><span>${Math.round(d.final[f])}</span></div>`).join('')}
+    ${(d.consistente||d.equilibrado)?'':'<div class="msg warn">As duas partes apontaram estilos diferentes. Vale conversar com seu líder para confirmar o perfil nas situações do dia a dia.</div>'}
+    ${d.enviado
+      ? `<div class="msg ok">O PDF com o resultado completo foi enviado para <b>${esc(d.email)}</b>.</div>`
+      : `<div class="msg warn">O PDF foi gerado, mas o e-mail não foi enviado (${esc(d.erro_envio||'erro desconhecido')}). Baixe o PDF abaixo; seu líder também foi avisado.</div>`}
+    <div class="actions"><button id="open">Baixar o PDF</button><button class="pri" id="fim">Concluir</button></div>`;
+  document.getElementById('open').onclick = () => {
+    const bin = atob(d.pdf_b64), arr = new Uint8Array(bin.length);
+    for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([arr],{type:'application/pdf'}));
+    a.download = d.pdf_nome; a.click();
+  };
+  document.getElementById('fim').onclick = () => {
+    app.innerHTML = '<h2>Obrigado!</h2><p class="muted">Você já pode fechar esta janela.</p>';
+  };
+}
+
+init().catch(()=>{ app.innerHTML = '<h2>Não foi possível carregar o questionário.</h2><p class="muted">Verifique a conexão e recarregue a página.</p>'; });
+</script>
+</body>
+</html>

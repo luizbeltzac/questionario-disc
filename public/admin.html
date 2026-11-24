@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Convites – Questionário DISC</title>
+<style>
+:root{--navy:#2D366F;--ink:#1D2340;--muted:#5F6782;--line:#D9DDE8;--mist:#EEF0F6;--bg:#F6F7FB}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--navy);color:#fff;padding:18px 24px;font-weight:600}
+main{max-width:680px;margin:28px auto;padding:0 16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:16px}
+h2{margin:0 0 6px;color:var(--navy);font-size:18px}
+p{color:var(--muted);font-size:14px;line-height:1.5}
+label{display:block;font-weight:600;font-size:13px;margin:14px 0 6px}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font:inherit}
+.row{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+button{font:inherit;cursor:pointer;border-radius:8px;padding:10px 18px;border:1px solid var(--navy);background:var(--navy);color:#fff;font-weight:600;margin-top:16px}
+button.sec{background:#fff;color:var(--navy)}
+.err{color:#B3261E;font-size:13px;margin-top:10px}
+.link{background:var(--mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:12.5px;word-break:break-all;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:13px}td{padding:8px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+</style>
+</head>
+<body>
+<header>Questionário DISC · Gerar convites</header>
+<main>
+  <div class="card">
+    <h2>Novo convite</h2>
+    <p>Cada link vale só para a pessoa indicada: o nome e o e-mail vêm travados no questionário e o resultado vai para esse e-mail, com cópia para você.</p>
+    <label for="senha">Senha de administrador</label>
+    <input type="password" id="senha" autocomplete="current-password">
+    <label for="nome">Nome completo do participante</label>
+    <input id="nome">
+    <div class="row">
+      <div><label for="email">E-mail corporativo</label><input id="email" type="email"></div>
+      <div><label for="dias">Validade</label><select id="dias"><option value="7">7 dias</option><option value="15" selected>15 dias</option><option value="30">30 dias</option></select></div>
+    </div>
+    <button id="gerar">Gerar link</button>
+    <div class="err" id="err"></div>
+  </div>
+  <div class="card" id="saida" style="display:none">
+    <h2>Links gerados</h2>
+    <p>Copie e envie para cada pessoa (e-mail, Teams ou WhatsApp). Esta lista some ao fechar a página.</p>
+    <table id="lista"></table>
+  </div>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+$('#gerar').onclick = async () => {
+  $('#err').textContent = '';
+  const body = {senha:$('#senha').value, nome:$('#nome').value, email:$('#email').value, dias:+$('#dias').value};
+  try{
+    const r = await fetch('/api/convite',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d = await r.json();
+    if(!d.ok) throw new Error(d.erro || 'Falha ao gerar o link');
+    $('#saida').style.display = 'block';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td><b>${esc(body.nome)}</b><br>${esc(body.email)}<br><span style="color:#5F6782">vale até ${esc(d.expira)}</span><div class="link">${esc(d.link)}</div></td><td style="width:90px"><button class="sec">Copiar</button></td>`;
+    tr.querySelector('button').onclick = e => { navigator.clipboard.writeText(d.link); e.target.textContent = 'Copiado'; };
+    $('#lista').prepend(tr);
+    $('#nome').value = ''; $('#email').value = ''; $('#nome').focus();
+  }catch(e){ $('#err').textContent = e.message; }
+};
+</script>
+</body>
+</html>
