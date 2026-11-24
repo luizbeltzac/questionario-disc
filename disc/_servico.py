@@ -25,7 +25,7 @@ from _pdf_relatorio import gerar_pdf
 from _perfis import AVISO, PERFIS, resumo
 from _questionario import FATORES, NOMES_FATORES, PARTE_A, PARTE_B, ler_parte_c, pontuar, questionario_para_tela
 
-VERSAO = "1.1-online"
+VERSAO = "1.2"
 FUSO = timezone(timedelta(hours=-3))  # Brasília
 EMAIL_RE = re.compile(r"^[A-Za-z0-9._%+\-]+@([A-Za-z0-9.\-]+\.[A-Za-z]{2,})$")
 
@@ -178,7 +178,7 @@ def processar(dados: dict) -> dict:
             "parte_a": [{"bloco": i + 1, "mais": r["mais"][-1], "menos": r["menos"][-1],
                          "texto_mais": PARTE_A[i][r["mais"][-1]], "texto_menos": PARTE_A[i][r["menos"][-1]]}
                         for i, r in enumerate(parte_a)],
-            "parte_b": [{"fator": f, "frase": t, "nota": int(parte_b.get(f"B{j}"))} for j, (f, t) in enumerate(PARTE_B)],
+            "parte_b": [{"fator": f, "frase": t, "invertida": inv, "nota": int(parte_b.get(f"B{j}"))} for j, (f, t, inv) in enumerate(PARTE_B)],
         },
     }
     arq_json = pasta / f"{base}.json"

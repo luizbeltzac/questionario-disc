@@ -28,8 +28,8 @@ NOMES_FATORES = {
 PARTE_A = [
     {"D": "Vou direto ao ponto para chegar ao resultado", "I": "Animo as pessoas ao meu redor", "S": "Mantenho um ritmo constante de trabalho", "C": "Confiro os detalhes antes de entregar"},
     {"D": "Assumo o comando quando a situação pede", "I": "Gosto de trocar ideias com várias pessoas", "S": "Prefiro saber com antecedência o que vai mudar", "C": "Sigo os procedimentos combinados"},
-    {"D": "Gosto de metas desafiadoras", "I": "Gosto de ser reconhecido(a) pelo que faço", "S": "Valorizo um ambiente de confiança e lealdade", "C": "Gosto de entender o porquê de cada decisão"},
-    {"D": "Decido rápido, mesmo sem ter todas as informações", "I": "Convenço as pessoas com entusiasmo", "S": "Escuto com atenção antes de opinar", "C": "Analiso os dados antes de decidir"},
+    {"D": "Gosto de metas desafiadoras", "I": "Gosto quando o time celebra junto as conquistas", "S": "Valorizo um ambiente de confiança e lealdade", "C": "Gosto de entender o porquê de cada decisão"},
+    {"D": "Prefiro decidir logo e ajustar no caminho", "I": "Convenço as pessoas com entusiasmo", "S": "Escuto com atenção antes de opinar", "C": "Analiso os dados antes de decidir"},
     {"D": "Questiono quando algo não traz resultado", "I": "Puxo conversa com facilidade, até com quem não conheço", "S": "Sou a pessoa a quem os colegas recorrem para ajudar", "C": "Percebo erros que os outros deixam passar"},
     {"D": "Prefiro ter autonomia para fazer do meu jeito", "I": "Prefiro trabalhar com pessoas a trabalhar sozinho(a)", "S": "Prefiro uma rotina previsível", "C": "Prefiro receber instruções claras e completas"},
     {"D": "Busco vencer obstáculos com rapidez", "I": "Busco deixar o clima leve e positivo", "S": "Busco manter a harmonia na equipe", "C": "Busco fazer certo da primeira vez"},
@@ -37,11 +37,11 @@ PARTE_A = [
     {"D": "Encaro conflitos de frente", "I": "Uso o bom humor para aliviar tensões", "S": "Evito conflitos para preservar as relações", "C": "Uso fatos e argumentos lógicos numa discussão"},
     {"D": "Gosto de começar coisas novas", "I": "Gosto de apresentar ideias para um grupo", "S": "Gosto de concluir o que comecei antes de pegar outra coisa", "C": "Gosto de organizar e planejar cada etapa"},
     {"D": "Sou objetivo(a) e prático(a)", "I": "Sou comunicativo(a) e expressivo(a)", "S": "Sou paciente e calmo(a)", "C": "Sou cuidadoso(a) e preciso(a)"},
-    {"D": "Me motiva ter resultados para mostrar", "I": "Me motiva estar com pessoas", "S": "Me motiva saber que meu trabalho tem propósito", "C": "Me motiva resolver um problema técnico difícil"},
+    {"D": "Me motiva ter resultados para mostrar", "I": "Me motiva trabalhar junto com outras pessoas", "S": "Me motiva saber que meu trabalho tem propósito", "C": "Me motiva resolver um problema técnico difícil"},
     {"D": "Em reuniões, quero ir logo para a decisão", "I": "Em reuniões, gosto de espaço para conversar", "S": "Em reuniões, prefiro ouvir mais do que falar", "C": "Em reuniões, gosto de pauta e objetividade"},
-    {"D": "Aceito riscos para ganhar tempo", "I": "Confio na minha intuição", "S": "Prefiro o caminho que já foi testado", "C": "Prefiro checar tudo antes de arriscar"},
-    {"D": "Gosto de competir e vencer", "I": "Gosto de ser bem-visto(a) pelas pessoas", "S": "Prefiro cooperar a competir", "C": "Gosto de manter um padrão de qualidade alto"},
-    {"D": "Falo o que penso de forma direta", "I": "Falo com entusiasmo e emoção", "S": "Falo com calma e cuidado com o outro", "C": "Falo com precisão e embasamento"},
+    {"D": "Aceito um risco calculado para ganhar tempo", "I": "Confio na minha intuição", "S": "Prefiro o caminho que já foi testado", "C": "Prefiro checar tudo antes de arriscar"},
+    {"D": "Gosto de competir e vencer", "I": "Gosto de construir uma boa relação com todo mundo", "S": "Prefiro cooperar a competir", "C": "Gosto de manter um padrão de qualidade alto"},
+    {"D": "Falo o que penso de forma direta", "I": "Falo com entusiasmo para engajar as pessoas", "S": "Falo com calma e cuidado com o outro", "C": "Falo com precisão e embasamento"},
     {"D": "Diante de um problema, tomo a frente", "I": "Diante de um problema, mobilizo as pessoas", "S": "Diante de um problema, apoio quem está resolvendo", "C": "Diante de um problema, investigo a causa"},
     {"D": "Prefiro que me cobrem o resultado, não o passo a passo", "I": "Prefiro um líder próximo e acessível", "S": "Prefiro um líder que combine os prazos comigo", "C": "Prefiro um líder que deixe claras as prioridades e o cronograma"},
     {"D": "Trabalho bem sob pressão de prazo", "I": "Trabalho bem fazendo várias coisas ao mesmo tempo", "S": "Trabalho bem com tarefas contínuas e estáveis", "C": "Trabalho bem com tarefas que exigem precisão"},
@@ -49,28 +49,36 @@ PARTE_A = [
     {"D": "Assumo responsabilidades além do meu papel", "I": "Faço contatos e networking com facilidade", "S": "Sou bom(boa) ouvinte e alguém em quem se pode confiar", "C": "Sou criterioso(a) e observador(a)"},
     {"D": "Prefiro tarefas com desafio e liberdade", "I": "Prefiro tarefas com interação e variedade", "S": "Prefiro tarefas com método e continuidade", "C": "Prefiro tarefas com regras e padrões claros"},
     {"D": "Costumo falar sobre metas e conquistas", "I": "Costumo falar sobre pessoas e o ambiente de trabalho", "S": "Costumo falar sobre acordos e casos que já aconteceram", "C": "Costumo falar sobre fatos, dados e detalhes"},
-    {"D": "Quando discordo, defendo minha posição com firmeza", "I": "Quando discordo, tento convencer com carisma", "S": "Quando discordo, prefiro ceder para manter o bom clima", "C": "Quando discordo, peço dados que comprovem o ponto"},
+    {"D": "Quando discordo, defendo minha posição com firmeza", "I": "Quando discordo, busco convencer conversando com as pessoas", "S": "Quando discordo, prefiro ceder para manter o bom clima", "C": "Quando discordo, peço dados que comprovem o ponto"},
 ]
 
-# (fator, frase)
+# (fator, frase, invertida). Na frase invertida a nota conta ao contrário (5 -> 1).
 PARTE_B = [
-    ("D", "Gosto de assumir o controle das situações"),
-    ("I", "Tenho facilidade para me comunicar e me expressar"),
-    ("S", "Prefiro um ritmo de trabalho estável e previsível"),
-    ("C", "Sou detalhista e cuidadoso(a) com a qualidade"),
-    ("D", "Tomo decisões com rapidez e firmeza"),
-    ("I", "Gosto de estar rodeado(a) de pessoas no trabalho"),
-    ("S", "Sou paciente e calmo(a) no dia a dia"),
-    ("C", "Gosto de seguir regras, procedimentos e padrões"),
-    ("D", "Desafios difíceis me motivam"),
-    ("I", "Consigo animar e influenciar as pessoas"),
-    ("S", "Valorizo a cooperação e a harmonia na equipe"),
-    ("C", "Analiso bem as informações antes de decidir"),
-    ("D", "Não tenho medo de confrontar problemas diretamente"),
-    ("I", "Sou otimista e entusiasmado(a)"),
-    ("S", "Apoio meus colegas mesmo quando não sou solicitado(a)"),
-    ("C", "Prefiro ter tudo planejado antes de começar"),
+    ("D", "Gosto de assumir o controle das situações", False),
+    ("I", "Prefiro resolver as coisas conversando a trocar mensagens", False),
+    ("S", "Prefiro manter a rotina mesmo quando surge algo novo e interessante", False),
+    ("C", "Reviso meu trabalho mais de uma vez, mesmo com prazo apertado", False),
+    ("D", "Prefiro decidir rápido, mesmo que precise corrigir depois", False),
+    ("I", "Rendo mais trabalhando perto das pessoas do que sozinho(a)", False),
+    ("S", "Mudanças de última hora me incomodam bastante", False),
+    ("C", "Sigo o procedimento mesmo quando um atalho resolveria", False),
+    ("D", "Prefiro um desafio difícil a uma tarefa tranquila", False),
+    ("I", "Costumo ser quem puxa o grupo para uma ideia nova", False),
+    ("S", "Prefiro ceder num ponto a criar atrito com um colega", False),
+    ("C", "Prefiro atrasar uma decisão a decidir sem os dados", False),
+    ("D", "Num impasse, prefiro que outra pessoa conduza", True),
+    ("I", "Prefiro trabalhar quieto(a), com pouca conversa", True),
+    ("S", "A rotina me entedia rápido", True),
+    ("C", "Entrego no \"bom o suficiente\" sem me incomodar", True),
 ]
+
+# Duas leituras da Dominância na Parte A (índice do bloco -> faceta da frase D)
+# P = Posicionamento (direto, assume, defende posição, autonomia)
+# V = Velocidade/desafio (rapidez, risco, metas, competição)
+FACETA_D = {0: "P", 1: "P", 2: "V", 3: "V", 4: "P", 5: "P", 6: "V", 7: "V", 8: "P", 9: "V", 10: "P", 11: "V",
+            12: "V", 13: "V", 14: "V", 15: "P", 16: "P", 17: "P", 18: "V", 19: "V", 20: "P", 21: "V", 22: "V", 23: "P"}
+NOMES_FACETA_D = {"P": "Posicionamento", "V": "Velocidade/desafio"}
+
 
 ESCALA_B = {
     1: "Discordo totalmente",
@@ -136,6 +144,7 @@ PARTE_C_MULTI = [
 
 MARGEM_SECUNDARIO = 10   # pontos (0-100) para considerar o 2º fator como secundário
 MARGEM_EQUILIBRADO = 10  # se todos os fatores estiverem dentro desta faixa
+MARGEM_CONSISTENCIA = 10  # v1.2: distância máxima entre as partes
 
 
 def questionario_para_tela(seed: int | None = None) -> dict:
@@ -149,7 +158,7 @@ def questionario_para_tela(seed: int | None = None) -> dict:
         itens = [{"id": f"A{i}{f}", "texto": bloco[f]} for f in FATORES]
         rng.shuffle(itens)
         blocos.append({"numero": i + 1, "itens": itens})
-    frases = [{"id": f"B{j}", "texto": t} for j, (_, t) in enumerate(PARTE_B)]
+    frases = [{"id": f"B{j}", "texto": t} for j, (_, t, _inv) in enumerate(PARTE_B)]
     rng.shuffle(frases)
     unica = []
     for qid, pergunta, opcoes in PARTE_C_UNICA:
@@ -206,6 +215,7 @@ def pontuar(respostas: dict) -> dict:
     if len(blocos) != len(PARTE_A):
         raise ValueError("A Parte A precisa ter as 24 respostas.")
     bruto_a = {f: 0 for f in FATORES}
+    bruto_d = {"P": 0, "V": 0}
     for i, r in enumerate(blocos):
         mais, menos = r.get("mais"), r.get("menos")
         if not mais or not menos or mais == menos:
@@ -215,16 +225,22 @@ def pontuar(respostas: dict) -> dict:
                 raise ValueError(f"Bloco {i + 1}: resposta inválida.")
         bruto_a[_fator_do_id_a(mais)] += 1
         bruto_a[_fator_do_id_a(menos)] -= 1
+        if _fator_do_id_a(mais) == "D":
+            bruto_d[FACETA_D[i]] += 1
+        if _fator_do_id_a(menos) == "D":
+            bruto_d[FACETA_D[i]] -= 1
 
     resp_b = respostas.get("parte_b") or {}
     if len(resp_b) != len(PARTE_B):
         raise ValueError("A Parte B precisa ter as 16 respostas.")
     soma_b = {f: 0 for f in FATORES}
     cont_b = {f: 0 for f in FATORES}
-    for j, (fator, _) in enumerate(PARTE_B):
+    for j, (fator, _, invertida) in enumerate(PARTE_B):
         valor = int(resp_b.get(f"B{j}", 0))
         if valor not in ESCALA_B:
             raise ValueError(f"Frase {j + 1} da Parte B sem resposta.")
+        if invertida:
+            valor = 6 - valor
         soma_b[fator] += valor
         cont_b[fator] += 1
 
@@ -239,20 +255,27 @@ def pontuar(respostas: dict) -> dict:
     secundario = ordem[1] if final[ordem[0]] - final[ordem[1]] <= MARGEM_SECUNDARIO else None
     equilibrado = max(final.values()) - min(final.values()) <= MARGEM_EQUILIBRADO
 
-    top_a = max(FATORES, key=lambda f: pct_a[f])
-    top_b = max(FATORES, key=lambda f: pct_b[f])
-    # Consistente se o principal de cada parte está entre os dois mais altos da outra.
-    top2_a = sorted(FATORES, key=lambda f: pct_a[f], reverse=True)[:2]
-    top2_b = sorted(FATORES, key=lambda f: pct_b[f], reverse=True)[:2]
-    consistente = top_a in top2_b and top_b in top2_a
+    # Consistência (v1.2): fatores empatados contam juntos; só é inconsistente se o
+    # principal de uma parte ficar mais de MARGEM_CONSISTENCIA pontos atrás do maior da outra.
+    max_a, max_b = max(pct_a.values()), max(pct_b.values())
+    tops_a = [f for f in FATORES if pct_a[f] == max_a]
+    tops_b = [f for f in FATORES if pct_b[f] == max_b]
+    consistente = (min(max_b - pct_b[f] for f in tops_a) <= MARGEM_CONSISTENCIA
+                   and min(max_a - pct_a[f] for f in tops_b) <= MARGEM_CONSISTENCIA)
+    n_fac = {k: sum(1 for v in FACETA_D.values() if v == k) for k in ("P", "V")}
+    faceta_d = {NOMES_FACETA_D[k]: round((bruto_d[k] + n_fac[k]) / (2 * n_fac[k]) * 100, 1) for k in ("P", "V")}
 
     ritmo = round(((final["D"] + final["I"]) - (final["S"] + final["C"])) / 2, 1)
     foco = round(((final["I"] + final["S"]) - (final["D"] + final["C"])) / 2, 1)
 
+    proximos = [f for f in ordem[2:] if final[principal] - final[f] <= MARGEM_SECUNDARIO] if secundario else []
     if equilibrado:
         rotulo = "Perfil equilibrado"
     elif secundario:
         rotulo = f"{principal}{secundario} – {NOMES_FATORES[principal]} com {NOMES_FATORES[secundario]}"
+        if proximos:
+            nomes = " e ".join(NOMES_FATORES[f] for f in proximos)
+            rotulo += f" · {nomes} também {'próximas' if len(proximos) > 1 else 'próxima'}"
     else:
         rotulo = f"{principal} – {NOMES_FATORES[principal]}"
 
@@ -267,6 +290,8 @@ def pontuar(respostas: dict) -> dict:
         "secundario": secundario,
         "equilibrado": equilibrado,
         "consistente": consistente,
+        "proximos": proximos,
+        "faceta_d": faceta_d,
         "ritmo": ritmo,
         "foco": foco,
         "rotulo": rotulo,

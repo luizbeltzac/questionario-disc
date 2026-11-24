@@ -168,6 +168,14 @@ def gerar_pdf(destino: Path, nome: str, email: str, resultado: dict, quando: dat
         "<b>Como ler:</b> as barras mostram o quanto cada estilo aparece no seu jeito de trabalhar; "
         "o mais alto é o seu estilo principal. O quadrante mostra onde você está em dois eixos: "
         "ritmo (ativo ou reflexivo) e foco (tarefa ou pessoas).", ST["muted"]))
+    fd = resultado.get("faceta_d")
+    if fd:
+        story.append(Spacer(1, 3))
+        story.append(Paragraph(
+            "<b>Dominância em duas leituras</b> (Parte 1): "
+            + " · ".join(f"{k} {v:.0f}" for k, v in fd.items())
+            + ". Posicionamento é falar de forma direta, assumir e defender uma posição; "
+            "velocidade/desafio é agir rápido, correr risco calculado e buscar metas difíceis.", ST["muted"]))
 
     story.append(Paragraph("Os quatro estilos em uma frase", ST["h2"]))
     linhas = [[Paragraph(f"<b>{f} · {PERFIS[f]['nome']}</b>", ST["cell"]), Paragraph(PERFIS[f]["resumo"], ST["cell"])]
