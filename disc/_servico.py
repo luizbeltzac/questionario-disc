@@ -195,7 +195,9 @@ def processar(dados: dict) -> dict:
         except Exception as exc:  # noqa: BLE001
             erro_envio = f"{type(exc).__name__}: {exc}"
             print(f"ERRO envio participante: {erro_envio}", flush=True)
-        lider = _cfg("LEADER_EMAIL") or _cfg("REPORT_CC")
+        # Sem LEADER_EMAIL, a cópia vai para a própria conta remetente (a do líder).
+        lider = _cfg("LEADER_EMAIL") or _cfg("REPORT_CC") or _cfg("SMTP_FROM") or _cfg("SMTP_USER")
+        print(f"Envio líder: destino {'configurado' if _cfg('LEADER_EMAIL') else 'padrão (SMTP_FROM)'}", flush=True)
         if lider:
             try:
                 aviso = "" if enviado else f"<p><b>Atenção:</b> o e-mail para o participante falhou ({html.escape(erro_envio or '')}). Encaminhe o PDF.</p>"
@@ -205,6 +207,7 @@ def processar(dados: dict) -> dict:
                     "<p>Anexos: PDF do resultado e o .json para importar no programa Gestão do Time.</p>",
                     f"{nome} concluiu o questionário DISC: {res['rotulo']}.", lider,
                     f"Resultado DISC – {nome}", [pdf, arq_json], cc_override="")
+                print("Envio líder: OK", flush=True)
             except Exception as exc:  # noqa: BLE001
                 print(f"ERRO envio líder: {type(exc).__name__}: {exc}", flush=True)
 
