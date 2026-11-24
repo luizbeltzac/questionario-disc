@@ -1,7 +1,7 @@
 # Questionário DISC – versão online
 
 Questionário de perfil comportamental (DISC) do time de Projetos Estratégicos.
-Roda na Vercel: páginas em `public/` e funções Python em `api/`.
+Roda na Vercel como aplicação Python (WSGI): `app.py` é o ponto de entrada; páginas em `public/` e regras em `disc/`.
 **Nada é gravado na plataforma**: o resultado vai por e-mail.
 
 | Quem | Recebe |
@@ -18,7 +18,7 @@ Roda na Vercel: páginas em `public/` e funções Python em `api/`.
 ## Publicar na Vercel (uma vez)
 1. Crie a conta em vercel.com entrando com o GitHub.
 2. **Add New → Project →** importe o repositório `questionario-disc`
-   (Framework Preset: **Other**; não precisa mudar build nem output).
+   (a Vercel detecta Python sozinha; não precisa mudar build nem output).
 3. Em **Settings → Environment Variables** cadastre as variáveis do
    `.env.example` (APP_SECRET, ADMIN_PASSWORD, LEADER_EMAIL, SMTP_*).
    Use uma **senha de aplicativo** da Zoho em SMTP_PASSWORD.
@@ -36,12 +36,12 @@ python dev_local.py      ->  http://127.0.0.1:8000/admin.html
 ```
 
 ## Estrutura
-- `api/_questionario.py` – frases e pontuação
-- `api/_perfis.py` – textos de cada perfil
-- `api/_pdf_relatorio.py` – relatório em PDF
-- `api/_email_envio.py` – envio SMTP (mesma lógica do relatório do Portfólio)
-- `api/_servico.py` – convites assinados, montagem do questionário e envio
-- `api/questionario.py`, `api/enviar.py`, `api/convite.py` – rotas
+- `app.py` – ponto de entrada e rotas
+- `disc/_questionario.py` – frases e pontuação
+- `disc/_perfis.py` – textos de cada perfil
+- `disc/_pdf_relatorio.py` – relatório em PDF
+- `disc/_email_envio.py` – envio SMTP (mesma lógica do relatório do Portfólio)
+- `disc/_servico.py` – convites assinados, montagem do questionário e envio
 - `public/index.html` – questionário · `public/admin.html` – convites
 
 ## Segurança
